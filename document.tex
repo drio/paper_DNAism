@@ -1,0 +1,193 @@
+\documentclass{bioinfo}
+\copyrightyear{2014}
+\pubyear{2014}
+
+\begin{document}
+\firstpage{1}
+
+\title[short Title]{DNAism: Exploring genomic datasets on the web with Horizon Charts. }
+%\author[Sample \textit{et~al}]{David Rio Deiros\,$^{1,*}$, XXXXXXXXXX\,$^{2}$ and Jeff Rogers\,$^2$\footnote{to whom correspondence should be addressed}}
+\author[Sample \textit{et~al}]{David Rio Deiros\,$^{1}$ and Jeff Rogers\,$^1$\footnote{to whom correspondence should be addressed}}
+\address{$^{1}$Department of Genomic, Baylor College of Medicine. }
+%\address{$^{1}$Department of Genomic, Baylor College of Medicine. \\
+%$^{2}$Department of XXXXXXXX, Address XXXX etc.}
+
+\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+
+\editor{Associate Editor: XXXXXXX}
+
+\maketitle
+
+\begin{abstract}
+
+\section{Summary:}
+Computational biologist  daily face the need of exploring massive amounts of
+genomic datasets. New visualization techniques help researchers navigate and
+understand these big data sets. Horizon Charts are a relatively new
+visualization method that, under the right conditions, maximize data density
+without losing graphical perception. This visualization technique has been
+successfully applied to understand multi-metric time series data. We have
+adapted an existing Javascript library (Cubism) that implements Horizon Charts
+for the time series domain to make it work with genomic datasets. We call this
+new library DNAism. For big data sets we provide a backend server implemented
+in python that relies on tabix to speed up the acquisition of the data points
+necessary for the visualizations. Finally, we have built a small web
+application to demonstrate the usefulness and effectiveness of our library.
+
+\section{Availability:}
+http://github.com/drio/dnaism
+
+\section{Contact:} \href{deiros@bcm.edu}{deiros@bcm.edu}
+\end{abstract}
+
+\section{Introduction}
+
+Sharing and communicating about large and intricate datasets produced by
+Next-Gen sequencing can be a challenging task. Visual channels are an effective
+way to explore data. However, the accelerating increase in data quantity is
+pushing the limits of current approaches in representing these datasets
+visually, without sacrificing accuracy or graphical perception.  Data volume is
+increasing vertically as throughput increases, and horizontally as studies
+involving large numbers of subjects become more feasible.  Thus, more effective
+visualization techniques are needed to understand the most challenging Next-Gen
+Sequencing datasets.
+
+Horizon Charts {1} have proved to be a very effective visualization approach
+when working with multi-metric time-series encoded data. BED files are the gold
+standard for capturing genomic metrics in the Next-Gen sequencing domain. In
+time series, metrics are monitored over time, however, BED files use genomic
+coordinates instead. We have adapted a time series Javascript library to the
+genomic domain. Our new library is called DNAism.
+
+\begin{figure*}
+\centerline{\includegraphics{figure.pdf}}
+\caption{
+Horizon charts emerge from applying a set of changes to traditional line
+charts. We start by coloring the underlying area of the line chart, using
+different colors for positive and negative values (A). Then, we divide the
+graph in bands and apply a gradient of color that increases along with the
+quantitative value of the variable we are representing (B). In a later step,
+the negative values are flipped over the baseline (C), effectively reducing the
+vertical space by two fold. In a final step, bands are collapsed making all of
+them start at the baseline and providing another level of space reduction (D).
+Visualization of read depth across 24 Whole Genome Sequencing Rhesus samples
+(30x coverage) for genomic region Chr17:1.1M-1.2M (E). The high levels of data
+density facilitates the perception of patterns across the whole dataset.
+}\label{fig:01}
+\end{figure*}
+
+
+
+
+\section{Implementation}
+
+Cubism {1} is a Javascript library (based on d3 {6}) that implements horizon
+charts using the web platform in the context of time series data. In genomic
+datasets, the variable under study is associated with chromosomal coordinates
+instead of timestamps. We have adapted the library to support genomic datasets
+without modifying the powerful and elegant original interface to make DNAism a
+flexible and effective tool to explore multi-sample genomic datasets with
+horizon charts. Selecting this platform yields another benefit for DNAism
+users: They can build richer and more interactive visualizations by leveraging
+the power of the web ecosystem and their ubiquitous technologies (CSS, HTML and
+Javascript).
+
+The modifications made to the original library are dispersed across all the
+different components since time values are associated with all the data points.
+We have modified the majority of the components to use genomic coordinates
+instead. In addition, we wrote two major source components to load data from
+genomic formats (BED files). The source component encapsulates the details on
+how to retrieve data and answer queries from the other library pieces. Our most
+simple source (¿bedfile.js¿) loads in memory all the data from the input file
+and returns the necessary data points for the current context when queried. The
+context is the principal component of the library and where we define the
+region of the genome we want to explore.
+
+Loading all the data from the file (or files) will be inefficient for bigger
+datasets, especially when exploring multi-sample data. To overcome this, the
+user may choose to precompute the necessary data points for a particular region
+to minimize the amount of data points loaded in by the browser. We offer
+another alternative via ¿bedserver.js¿. With this source, the browser sends
+queries to a dedicated server that implements a RESTful API. This backend
+relies on indexed data{4:tabix} to speed up random access to the data and only
+returns back to the browser the necessary data points for the visualization.
+Along with the library we provide a server (distributed as a python package:
+bedserver{5}) that implements this concept.
+
+The source code has a clean and decoupled interface which facilitates the
+extension of the library. DNAism is data agnostic and users can create new
+sources to accommodate their backend needs.
+
+\section{Results}
+
+We have exposed to the genomic community a powerful visualization technique
+previously used in the time series data domain. Our library keeps the effective
+and elegant interface of the original, allowing users to leverage its power in
+the context of the web platform.
+
+By providing a library, we have the flexibility on how to use these resources,
+either by building full applications or using it within existing ones.
+
+The companion lightweight server will facilitate the exploration of large
+genomic datasets without affecting user experience by using indexed data sets.
+Alternatively, users can create their own data sources to capture the
+peculiarities of their data containers.
+
+To expose the power of DNAism, we accompany with DNAism a web application
+example that uses the library and the bedserver backend that facilitates
+exploring and comparing genomic metrics from different projects and samples.
+
+\section{Discussion}
+
+XXXXXXXX
+
+%Equation~(\ref{eq:01}) Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text. Figure \ref{fig:02} shows that the above method  Text Text Text Text  Text Text Text Text Text Text  Text Text.  \citealp{Boffelli03} might want to know about  text text text text ……
+
+\section*{Acknowledgement}
+Text Text Text Text Text Text  Text Text.  \citealp{Boffelli03} might want to know about  text text text text
+
+\paragraph{Funding\textcolon} Text Text Text Text Text Text  Text Text.
+
+%\bibliographystyle{natbib}
+%\bibliographystyle{achemnat}
+%\bibliographystyle{plainnat}
+%\bibliographystyle{abbrv}
+%\bibliographystyle{bioinformatics}
+%
+%\bibliographystyle{plain}
+%
+%\bibliography{Document}
+
+
+\begin{thebibliography}{}
+\bibitem[Bofelli {\it et~al}., 2000]{Boffelli03} Bofelli,F., Name2, Name3 (2003) Article title, {\it Journal Name}, {\bf 199}, 133-154.
+
+\bibitem[Bag {\it et~al}., 2001]{Bag01} Bag,M., Name2, Name3 (2001) Article title, {\it Journal Name}, {\bf 99}, 33-54.
+
+\bibitem[Yoo \textit{et~al}., 2003]{Yoo03}
+Yoo,M.S. \textit{et~al}. (2003) Oxidative stress regulated genes
+in nigral dopaminergic neurnol cell: correlation with the known
+pathology in Parkinson's disease. \textit{Brain Res. Mol. Brain
+Res.}, \textbf{110}(Suppl. 1), 76--84.
+
+\bibitem[Lehmann, 1986]{Leh86}
+Lehmann,E.L. (1986) Chapter title. \textit{Book Title}. Vol.~1, 2nd edn. Springer-Verlag, New York.
+
+\bibitem[Crenshaw and Jones, 2003]{Cre03}
+Crenshaw, B.,III, and Jones, W.B.,Jr (2003) The future of clinical
+cancer management: one tumor, one chip. \textit{Bioinformatics},
+doi:10.1093/bioinformatics/btn000.
+
+\bibitem[Auhtor \textit{et~al}. (2000)]{Aut00}
+Auhtor,A.B. \textit{et~al}. (2000) Chapter title. In Smith, A.C.
+(ed.), \textit{Book Title}, 2nd edn. Publisher, Location, Vol. 1, pp.
+???--???.
+
+\bibitem[Bardet, 1920]{Bar20}
+Bardet, G. (1920) Sur un syndrome d'obesite infantile avec
+polydactylie et retinite pigmentaire (contribution a l'etude des
+formes cliniques de l'obesite hypophysaire). PhD Thesis, name of
+institution, Paris, France.
+
+\end{thebibliography}
+\end{document}
