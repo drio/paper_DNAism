@@ -2,8 +2,8 @@
 \copyrightyear{2014}
 \pubyear{2014}
 
+\usepackage{fixltx2e}
 \usepackage{natbib}
-%\bibliographystyle{plain}
 \bibliographystyle{apalike}
 
 \begin{document}
@@ -34,15 +34,16 @@ density without losing graphical perception. This visualization technique has
 been successfully applied to understand multi-metric time series data. We have
 adapted an existing Javascript library
 (Cubism\footnote{http://github.com/square/cubism}) that implements Horizon
-Charts for the time series domain so that it works efficiently and easily with
-genomic datasets. We call this new library DNAism. For big data sets we provide
-a backend server implemented in Python that relies on tabix\citep{tabix-li} to
-efficiently retrieve the data points necessary for the visualizations. Finally,
-we have built a small web application to demonstrate the usefulness and
-effectiveness of our library.
+Charts for the time series domain so that it works effectively with genomic
+datasets. We call this new library DNAism. For big datasets we provide a
+backend server implemented in Python that relies on tabix\citep{tabix-li} to
+efficiently retrieve only the data points necessary for the visualizations.
+Finally, we have built a small web application to demonstrate the usefulness
+and effectiveness of our library.
 
 \section{Availability and implementation:}
-Source code, documentation and examples can ben found at: http://github.com/drio/dnaism.
+Source code, documentation and examples can ben found at:
+http://github.com/drio/dnaism.
 
 \section{Contact:} \href{deiros@bcm.edu}{deiros@bcm.edu}
 \end{abstract}
@@ -73,22 +74,23 @@ library to the genomic domain. We call our new library DNAism.
 \caption{
 Horizon Charts emerge from applying a set of changes to
 traditional line charts. We start by coloring the underlying area of the line
-chart, using different colors for positive and negative values \textbf{(A)}. Then, we
+chart, using different hues for positive and negative values \textbf{(A)}. Then, we
 divide the graph in bands and apply a gradient of color that increases along
 with the quantitative value of the variable we are observing \textbf{(B)}. In a later
-step, the negative values are flipped over the baseline \textbf{(C)}, effectively
+step, negative values are flipped over the baseline \textbf{(C)}, effectively
 reducing the vertical space by two fold. In a final step, bands are collapsed
 making all of them start at the baseline and providing another level of space
 reduction \textbf{(D)}.  Visualization of read depth across whole genome sequences from
 24 rhesus macaque samples (30x coverage) for genomic region Chr17:1.1M-1.2M
 \textbf{(E)}. In this snapshot we can appreciate the strengths of the library and
 visualization technique: First, extraordinary patterns are easily observed.
-Second, comparing the metric values across all the sample is simple and
+Second, comparing the metric values across all the samples is simple and
 effective (There are regions consistently underrepresented across all the
-samples and 32510 has low coverage across the genomic region). We are
-effectively conveying information from 500k data points (notice there is a
-downsampling process to map input values to the available area for the
-visualization).
+samples and 32510 has low coverage across the whole genomic region).
+%We are
+%effectively conveying information from 500k data points (notice there is a
+%downsampling process to map input values to the available area for the
+%visualization).
 }\label{fig:01}
 \end{figure*}
 
@@ -100,14 +102,16 @@ Cubism is a Javascript library (based on D3~\citep{2011-d3}) that implements
 Horizon Charts using the web platform in the context of time series data. In
 genomic datasets, the variable under study is associated with chromosomal
 coordinates instead of timestamps. We have adapted the library to support
-genome coordinate data without modifying the powerful and elegant original
-interface.  This makes DNAism a flexible and effective tool to explore
-multi-sample genomic datasets with Horizon Charts. Selecting this platform
-yields another benefit for DNAism users: They can build richer and more
-interactive visualizations by leveraging the power of the web ecosystem and its
-ubiquitous technologies (CSS, HTML and Javascript).
+genome coordinate data without modifying the expressive original interface.
+This makes DNAism a flexible and effective tool to explore multi-sample genomic
+datasets with Horizon Charts.
 
-Functions within the different components are the main entry points to the
+%Selecting this platform yields another benefit
+%for DNAism users: They can build richer and more interactive visualizations by
+%leveraging the power of the web ecosystem and its ubiquitous technologies (CSS,
+%HTML and Javascript).
+
+Methods within the different components are the main entry points to the
 library. The main component is context, where we define the region of the
 genome we want to explore. We also specify, in pixels, how much vertical space
 we have available for the visualization. Visual elements for the horizontal
@@ -116,13 +120,13 @@ inspect metric values, across all samples, for specific locations. This is
 controlled via the rule component. Access to the data is performed via sources
 which contain the logic to pull and map the necessary data for the
 visualization. The source component specifies a software contract that all the
-sources have to follow in order to integrate correctly. Our library provides
-two sources: bedfile and bedserver. Once the sources are created we can use the
-metric component to instantiate metrics pointing to specific samples. Finally,
-the horizon component encapsulates all the necessary logic to create the visual
-elements necessary for the visualization.
+sources have to follow in order to interface correctly with the rest of the
+system. Our library provides two sources: bedfile and bedserver. Once the
+sources are created the metric component can be used to instantiate metrics
+pointing to specific samples. Finally, the horizon component encapsulates all
+the necessary logic to create the visual elements for the visualization.
 
-The modifications made to the original library are dispersed across all the
+Modifications made to the original library are dispersed across all the
 different components since time values are associated with all the data points.
 We have modified the majority of the components to use genomic coordinates
 instead. In addition, we wrote two major source components to load data from
@@ -130,20 +134,18 @@ genomic formats (BED files). As explained earlier, the source component
 encapsulates the details on how to retrieve data and answer queries from the
 other library pieces. Our most simple source (bedfile.js) loads in memory all
 the data from the input file and returns the necessary data points for the
-current context when queried. The context is the principal component of the
-library and where we define the region of the genome we want to explore.
+current context when queried.
 
 Loading all the data from the file (or files) will be inefficient for bigger
 datasets, especially when exploring multi-sample data. To overcome this, the
 user may choose to precompute the necessary data points for a particular region
 to minimize the number of data points loaded in by the browser. We offer
-another alternative via 'bedserver.js'. With this source, the browser sends
-queries to a dedicated server that implements a RESTful API. This backend
-relies on indexed data~\citep{tabix-li} to speed up random access to the data
-and only returns back to the browser the necessary data points for the
-visualization.  Along with the library we provide a server (distributed as a
-Python package: bedserver\footnote{https://github.com/drio/bedserver}) that
-implements this concept.
+another alternative via bedserver. In this case, the browser sends queries to a
+dedicated server that implements a RESTful API. This backend relies on indexed
+data~\citep{tabix-li} to speed up random access to the data and only returns
+back to the browser the necessary data points for the visualization.  Along
+with the library we provide a server, distributed as a Python package:
+bedserver, that implements this concept.
 
 The source code has a clean and decoupled interface which facilitates the
 extension of the library. DNAism is data agnostic and users can create new
@@ -153,26 +155,25 @@ sources to capture their specific backend requirements.
 
 We introduce the genomics community to a powerful visualization technique
 previously used in the time series data domain. This method facilitates
-spotting interesting patterns across multi-sample data sets. By using the web
+spotting interesting patterns across multi-sample datasets. By using the web
 as our platform, we are exploiting its ubiquity to make exploring datasets
 stored in different locations easier.  Computing only the necessary data points
-for the visualization in the backend makes feasible exploring big data sets
+for the visualization in the backend makes feasible exploring big datasets
 across multiple samples.
 
 Our library keeps the effective and elegant interface of the original Cubism,
-allowing users to leverage its power for genomic data sets. By providing a
+allowing users to leverage its power for genomic datasets. By providing a
 library, we maintain flexibility regarding how to use these resources. Users
 can build full applications or use the library within their existing ones.
 
 The companion lightweight server will facilitate the exploration of large
-genomic datasets without affecting user experience by using indexed data sets.
+genomic datasets without affecting user experience by using indexed datasets.
 Alternatively, users can create their own data sources to capture the details
 of their environments' architecture.
 
-To expose the power of DNAism, we accompany with DNAism a web
-application\footnote{https://github.com/drio/bedbrowser} example that uses the
-library and the bedserver backend to facilitate exploring and comparing genomic
-metrics from different projects and samples.
+To expose the power of the library, we accompany with DNAism a web application
+example that uses the library and the bedserver backend to facilitate exploring
+and comparing genomic metrics from different projects and samples.
 
 
 
