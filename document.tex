@@ -128,7 +128,7 @@ We have modified the majority of the components to use genomic coordinates
 instead. In addition, we wrote two major source components to load data from
 genomic formats (BED files). As explained earlier, the source component
 encapsulates the details on how to retrieve data and answer queries from the
-other library pieces. Our most simple source (¿bedfile.js¿) loads in memory all
+other library pieces. Our most simple source (bedfile.js) loads in memory all
 the data from the input file and returns the necessary data points for the
 current context when queried. The context is the principal component of the
 library and where we define the region of the genome we want to explore.
@@ -137,7 +137,7 @@ Loading all the data from the file (or files) will be inefficient for bigger
 datasets, especially when exploring multi-sample data. To overcome this, the
 user may choose to precompute the necessary data points for a particular region
 to minimize the number of data points loaded in by the browser. We offer
-another alternative via ¿bedserver.js¿. With this source, the browser sends
+another alternative via 'bedserver.js'. With this source, the browser sends
 queries to a dedicated server that implements a RESTful API. This backend
 relies on indexed data~\citep{tabix-li} to speed up random access to the data
 and only returns back to the browser the necessary data points for the
@@ -167,7 +167,7 @@ can build full applications or use the library within their existing ones.
 The companion lightweight server will facilitate the exploration of large
 genomic datasets without affecting user experience by using indexed data sets.
 Alternatively, users can create their own data sources to capture the details
-of their environments¿ architecture.
+of their environments' architecture.
 
 To expose the power of DNAism, we accompany with DNAism a web
 application\footnote{https://github.com/drio/bedbrowser} example that uses the
@@ -175,10 +175,10 @@ library and the bedserver backend to facilitate exploring and comparing genomic
 metrics from different projects and samples.
 
 
-\section*{Acknowledgement}
 
-We want to thank Mike Bostock for his remarkable contributions to the
-visualization field, beautifully captured on the release of D3~\citep{2011-d3}.
+%\section*{Acknowledgement}
+%We want to thank Mike Bostock for his remarkable contributions to the
+%visualization field, beautifully captured on the release of D3~\citep{2011-d3}.
 
 \paragraph{Funding\textcolon} NIH(NCRR) R24OD011173.
 
