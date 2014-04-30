@@ -110,49 +110,48 @@ Horizon charts.
 %leveraging the power of the web ecosystem and its ubiquitous technologies (CSS,
 %HTML and Javascript).
 
-Methods within the different components are the main entry points to the
-library. The main component is context, where we define the region of the
-genome we want to explore. We also specify, in pixels, how much vertical space
-we have available for the visualization. Visual elements for the horizontal
-axis are encapsulated in the axis component. A vertical line can be created to
-inspect metric values, across all samples, for specific locations. This is
-controlled via the rule component. Access to the data is performed via sources
-which contain the logic to retrieve and map the necessary data for the
-visualization. The source component specifies a software contract that all the
-sources have to follow in order to interface correctly with the rest of the
-system. Our library provides two sources: bedfile and bedserver. Once the
-sources are created, the metric component can be used to instantiate metrics
-pointing to specific samples. Finally, the horizon component encapsulates all
-the necessary logic to create the visual elements for the visualization.
+To visualize genomic datasets, we have modified most of the components of the
+original Cubism library. One of the major components of DNAism is called
+“context”. It enables the user to specify the set of rules about the genomic
+data and the visualization formats. Some of the rules include specifying the
+genomic region to explore and specifying the height of the chart. In addition,
+there’s another major component named “source”. This component parses the
+genomic raw data and generates the data points necessary for visualization.
+DNAism provides two sources namely, the bedfile and the bedserver. The metrics
+component instantiates metrics pointing to specific samples. Finally, the
+horizon component encapsulates the necessary functionality to create the
+visual elements required for visualization. Visualization of sample data is
+illustrated in \ref{fig:01}.
 
-Modifications made to the original library are dispersed across all the
-different components since time values are associated with all the data points.
-We have modified the majority of the components to use genomic coordinates
-instead. In addition, we wrote two major sources  to load data from genomic
-formats (BED files). Sources encapsulate the details on how to retrieve data
-and answer queries from the other library pieces. Our most simple source
-(bedfile.js) loads in memory all the data from the input file and returns the
-necessary data points for the current context when queried.
+One of the crucial features of DNAism is the ability to parse and load the
+genomic data for visualization. We have provided two alternatives via the
+bedfile and the bedserver sources. A bedfile is a simple solution that loads
+all the genomic data in memory and returns the relevant data when queried.
+Clearly, this approach is not adequate for larger datasets, especially those
+involving multi-sample data. To handle such cases, the bedserver solution can
+be used. A bedserver is a dedicated server that implements a RESTful API
+interface. The client's code running in the browser can send queries to this
+server to obtain the data of interest. The server pre-indexes~\citep{tabix-li}
+the data to speed up random access to the genomic data and returns the data of
+interest back to the client. Hence, this approach becomes much more scalable
+even with large sized genomic data sets. We have implemented bedserver as a
+Python package and it is provided with DNAism.
 
-Loading all the data from the file (or files) will be inefficient for bigger
-datasets, especially when exploring multi-sample data. To overcome this, the
-user may choose to precompute the necessary data points for a particular region
-to minimize the number of data points loaded in by the browser. We offer
-another alternative via the bedserver source. In this case, the browser sends
-queries to a dedicated server that implements a RESTful API. This backend
-relies on indexed data~\citep{tabix-li} to speed up random access and only
-returns back to the browser the necessary data points for the visualization.
-Along with the library we provide a server, distributed as a Python package:
-bedserver, that implements this concept.
+Our source code has a decoupled interface that facilitates the extension of
+this library. DNAism is data agnostic. As a result, users can create new
+sources to capture their specific backend peculiarities.
+
 
 \section{Results}
 
 We introduce the genomics community to a powerful visualization technique
 previously used in the time series data domain. This method facilitates
-spotting abnormal patterns across multi-sample datasets.
+spotting abnormal patterns across multi-sample datasets. In addition, high
+density datasets can be explore more effectively facilitating its
+understanding.
 
-Our library keeps the effective and elegant interface of the original Cubism,
-allowing users to leverage its power for genomic data. By providing a
+Our library keeps the effective and elegant interface of the original,
+while allowing users to leverage its power for genomic data. By providing a
 library, we maintain flexibility regarding how to use these resources. Users
 can build full applications or use the library within their existing ones.
 
@@ -160,18 +159,6 @@ The companion lightweight server will facilitate the exploration of large
 genomic datasets without affecting user experience by using indexed datasets.
 Alternatively, users can create their own data sources to capturing the details
 of their own environments.
-
-%The source code has a clean and decoupled interface which facilitates the
-%extension of the library. DNAism is data agnostic and users can create new
-%sources to capture their specific backend peculiarities.
-
-%To expose the power of the library, we accompany with DNAism a web application
-%example that uses the library and the bedserver backend to facilitate exploring
-%and comparing genomic metrics from different projects and samples.
-
-%\section*{Acknowledgement}
-%We want to thank Mike Bostock for his remarkable contributions to the
-%visualization field, beautifully captured on the release of D3~\citep{2011-d3}.
 
 \paragraph{Funding\textcolon} NIH(NCRR) R24OD011173 and NIH grant 2U54HG003273.
 
