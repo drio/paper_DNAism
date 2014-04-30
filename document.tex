@@ -35,7 +35,7 @@ circumstances~\citep{2009-horizon}, maximizes data density without losing
 graphical perception. This visualization technique has been successfully
 applied to understand multi-metric time series
 data~\citep{time-in-the-horizon}. We have adapted an existing Javascript
-library (Cubism\citep{cubism}) that implements
+library (Cubism~\citep{cubism}) that implements
 Horizon Charts for the time series domain so that it works effectively with
 genomic datasets. We call this new library DNAism. For big datasets we provide
 a backend server implemented in Python that relies on tabix~\citep{tabix-li} to
@@ -97,14 +97,6 @@ samples and sample 32510 has low coverage across the whole genomic region).
 
 
 \section{Implementation}
-
-Cubism is a Javascript library based on D3~\citep{2011-d3} that implements
-Horizon Charts using the web platform in the context of time series data. In
-genomic datasets, the variable under study is associated with chromosomal
-coordinates instead of timestamps. We have adapted this library to support
-genome coordinate data without modifying the expressive original interface.
-This makes DNAism a flexible and effective tool to explore multi-sample genomic
-datasets with Horizon Charts.
 
 Contrary to time series data, in genomic datasets, the variable under study is
 associated with chromosomal coordinates instead of timestamps. We have modified
@@ -181,7 +173,7 @@ of their own environments.
 %We want to thank Mike Bostock for his remarkable contributions to the
 %visualization field, beautifully captured on the release of D3~\citep{2011-d3}.
 
-\paragraph{Funding\textcolon} NIH(NCRR) R24OD011173 and NIH grant 2U54HG003273 .
+\paragraph{Funding\textcolon} NIH(NCRR) R24OD011173 and NIH grant 2U54HG003273.
 
 \bibliography{document}
 
