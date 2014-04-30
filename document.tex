@@ -35,7 +35,7 @@ circumstances~\citep{2009-horizon}, maximizes data density without losing
 graphical perception. This visualization technique has been successfully
 applied to understand multi-metric time series
 data~\citep{time-in-the-horizon}. We have adapted an existing Javascript
-library (Cubism~\citep{cubism}) that implements
+library (Cubism~\footnote{https://github.com/square/cubism.}) that implements
 Horizon Charts for the time series domain so that it works effectively with
 genomic datasets. We call this new library DNAism. For big datasets we provide
 a backend server implemented in Python that relies on tabix~\citep{tabix-li} to
@@ -101,14 +101,9 @@ samples and sample 32510 has low coverage across the whole genomic region).
 Contrary to time series data, in genomic datasets, the variable under study is
 associated with chromosomal coordinates instead of timestamps. We have modified
 an existing time series data visualization library (based on D3~\citep{2011-d3})
-called Cubism~\citep{cubism} to support genome coordinate data. This makes DNAism
+called Cubism to support genome coordinate data. This makes DNAism
 a flexible and effective tool to explore multi-sample genomic datasets using
 Horizon charts.
-
-%Selecting this platform yields another benefit
-%for DNAism users: They can build richer and more interactive visualizations by
-%leveraging the power of the web ecosystem and its ubiquitous technologies (CSS,
-%HTML and Javascript).
 
 To visualize genomic datasets, we have modified most of the components of the
 original Cubism library. One of the major components of DNAism is called
@@ -146,9 +141,9 @@ sources to capture their specific backend peculiarities.
 
 We introduce the genomics community to a powerful visualization technique
 previously used in the time series data domain. This method facilitates
-spotting abnormal patterns across multi-sample datasets. In addition, high
-density datasets can be explore more effectively facilitating its
-understanding.
+spotting abnormal patterns across multi-sample datasets.  In addition, this
+approach helps to explore and visualize high density datasets more effectively,
+thereby, helping the researchers to understand the data more easily.
 
 Our library keeps the effective and elegant interface of the original,
 while allowing users to leverage its power for genomic data. By providing a
