@@ -1,0 +1,62 @@
+%basic cover letter template
+\documentclass{letter}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+
+\oddsidemargin=.2in
+\evensidemargin=.2in
+\textwidth=5.9in
+\topmargin=-.5in
+\textheight=9in
+
+%\address{Mathematics Department\\University of Illinois\\
+%1409 W. Green St\\Urbana, Illinois 61801}
+
+\newcommand {\qed}{\mbox{$\Box$}}
+\renewcommand {\iff}{\Longleftrightarrow}
+\newcommand {\R}{\mathbb{R}}
+\newcommand {\N}{\mathbb{N}}
+\newcommand {\Q}{\mathbb{Q}}
+\newcommand {\Z}{\mathbb{Z}}
+
+\newcommand {\sub}{\mbox{SB}}
+
+
+\begin{document}
+\begin{letter}{Dr. Janet Kelso \\
+Dept. of Evolutionary Genetics \\
+Max Planck Institute \\
+Leipzig, Germany}
+
+
+\opening{Dear Dr.Kelso,}
+
+    Please find attached with this letter a manuscript that we are submitting
+for possible publication in Bioinformatics.  This paper (Title: DNAism:
+Exploring genomic datasets on the web with Horizon Charts) describes a novel
+approach to visualize and explore large DNA sequence-based datasets.
+
+Horizon Charts are a powerful visualization technique to explore high density
+datasets without losing graphical perception. They have been successfully
+applied in the context of time-series data and we think the genomics community
+will greatly benefit from them. That is why we have modified an existing
+javascript library that captures this method to make it work with genomic
+datasets. We call this new library DNAism. We are confident that many
+researchers working on genomic data will find our library useful as they will,
+among other things, be able to spot common patterns and abnormal behavior
+across multiple datasets. In addition, thanks to its clean and effective
+interface, researchers will be able, if necessary, to extend the library to
+accommodate the peculiarities of their own particular datasets.
+
+Thank you for your efforts in evaluating this submission.  We look forward to
+hearing the result of your review process.
+
+
+
+\closing{Sincerely,}
+
+David Rio Deiros
+\end{letter}
+
+\end{document}
+

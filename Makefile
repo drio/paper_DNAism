@@ -8,5 +8,8 @@ document.pdf: document.tex
 			m = $$_.match(/captions, etc.\): (\d+)/); @t=m[1] if m; END {puts @o.to_i + @t.to_i}'
 	@echo "##################"
 
+cover.pdf: cover.tex
+	pdflatex $<
+
 clean:
 	rm -fr *.toc *.aux *.bbl *.blg *.idx *.log *.out *~ doc*.pdf *.dvi
