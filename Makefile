@@ -1,7 +1,12 @@
 SHELL=bash
 
 document.pdf: document.tex
-	pdflatex document; bibtex document; pdflatex document; pdflatex document
+	#pdflatex document; bibtex document; pdflatex document; pdflatex document
+	latex document.tex
+	bibtex document
+	latex document.tex
+	latex document.tex
+	dvipdfm document.dvi
 	@echo "##################"
 	@echo -ne "# of words: "; ./texcount.pl document.tex | \
 		ruby -ne 'BEGIN{@o=0, @t=0};m = $$_.match(/Words in text: (\d+)/); @o=m[1] if m; \
