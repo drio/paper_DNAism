@@ -12,4 +12,4 @@ cover.pdf: cover.tex
 	pdflatex $<
 
 clean:
-	rm -fr *.toc *.aux *.bbl *.blg *.idx *.log *.out *~ doc*.pdf *.dvi
+	rm -fr *.toc *.aux *.bbl *.blg *.idx *.log *.out *~ doc*.pdf *.dvi PLAIN.BST *.cfg *.bst
