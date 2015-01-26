@@ -29,21 +29,22 @@ $^{2}$Department of Molecular and Human Genetics, Baylor College of Medicine, Ho
 
 Computational biologists daily face the need to explore massive amounts of
 genomic data.  New visualization techniques help researchers navigate and
-understand these big data. Horizon Charts~\citep{time-in-the-horizon} are a
+understand these big data. Horizon Charts are a
 relatively new visualization method that, under the right
-circumstances~\citep{2009-horizon}, maximizes data density without losing
+circumstances, maximizes data density without losing
 graphical perception. This visualization technique has been successfully
 applied to understand multi-metric time series
-data~\citep{time-in-the-horizon}. We have adapted an existing Javascript
+data. We have adapted an existing Javascript
 library (Cubism\footnote{https://github.com/square/cubism.}) that implements
 Horizon Charts for the time series domain so that it works effectively with
-genomic datasets. We call this new library DNAism. For big datasets we provide
-a backend server implemented in Python that relies on tabix~\citep{tabix-li} to
-efficiently retrieve only the necessary data points for the visualizations.
+genomic datasets. We call this new library DNAism. 
+%For big datasets we provide
+%a backend server implemented in Python that relies on tabix to
+%efficiently retrieve only the necessary data points for the visualizations.
 
 \section{Availability and implementation:}
-Source code, documentation and examples can be found at:
-http://github.com/drio/dnaism.
+Source code, documentation and usage examples can be found at:
+http://dnaism.github.com.
 
 \section{Contact:} \href{deiros@bcm.edu}{deiros@bcm.edu}
 \end{abstract}
@@ -60,8 +61,10 @@ studies involving large numbers of subjects become more feasible.  Thus, more
 effective visualization techniques are needed to understand the most
 challenging Next-Gen sequencing datasets.
 
-Horizon Charts~\citep{time-in-the-horizon} have proved to be an effective
-visualization approach when working with multi-metric time series encoded data.
+Horizon Charts~\citep{time-in-the-horizon} have proved to be an 
+effective~\citep{2009-horizon}
+visualization approach when working with multi-metric time series 
+encoded data.
 On the other hand, BED\footnote{http://genome.ucsc.edu/FAQ/FAQformat.html}
 files are the gold standard for capturing genomic metrics in the Next-Gen
 sequencing domain. In time series, metrics are monitored over time, however,
@@ -87,7 +90,9 @@ strengths of the library and visualization technique: First, differences across
 patterns are easily observed.  Second, comparing the metric values across all
 samples is simple and effective (There are regions consistently
 underrepresented across all the samples and sample 32510 has low coverage
-across the whole genomic region).
+across the whole genomic region). Note that the metric we are exploring in 
+this example, read depth, cannot contain negative values. Therefore, only 
+green hues appear in~\textbf{(E)}.
 %We are
 %effectively conveying information from 500k data points (notice there is a
 %downsampling process to map input values to the available area for the
@@ -105,7 +110,7 @@ a flexible and effective tool to explore multi-sample genomic datasets using
 Horizon charts.
 
 To visualize genomic datasets, we have modified most of the components of the
-original Cubism library.  The two major components in DNAism are 'context' and
+original Cubism library.  The two major ones being 'context' and
 'source'.  The 'context' component performs several functions, most
 importantly, it defines the region of the genome we want to explore. This
 component also specifies, in pixels, how much vertical space we have available
@@ -122,7 +127,7 @@ the bedfile and the bedserver sources. A bedfile is a simple solution that
 loads all the genomic data in memory and returns the relevant data when
 queried.  However, this approach is not adequate for larger datasets,
 especially those involving multi-sample data. To handle such cases, the
-bedserver solution can be used. A bedserver is a dedicated server that
+bedserver source can be used. A bedserver is a dedicated server that
 implements a RESTful API interface. The client's code running in the browser
 can send queries to this server to obtain the data of interest.  The server
 uses pre-indexed~\citep{tabix-li} data to speed up random access and returns
@@ -141,7 +146,7 @@ We introduce the genomics community to a powerful visualization technique
 previously used in the time series data domain. This method facilitates
 identification of abnormal patterns across multi-sample datasets.  In addition, this
 approach helps to explore and visualize high density datasets more effectively,
-thereby, helping the researchers to understand the data more easily.
+thereby, helping the researchers to understand the data easily.
 
 Our library keeps the effective and elegant interface of the original,
 while allowing users to leverage its power for genomic data. By providing a
