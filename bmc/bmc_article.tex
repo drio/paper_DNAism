@@ -53,6 +53,7 @@
 \usepackage[utf8]{inputenc} %unicode support
 %\usepackage[applemac]{inputenc} %applemac support if unicode package fails
 %\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+\usepackage{graphicx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -87,12 +88,6 @@
 
 \begin{fmbox}
 \dochead{Software}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                          %%
-%% Enter the title of your article here     %%
-%%                                          %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{DNAism: Exploring genomic datasets on the web with Horizon Charts. }
 
@@ -143,11 +138,6 @@
 }
 
 
-%\address{$^{1}$Human Genome Sequencing Center, Baylor College of Medicine, Houston, TX.\\
-%$^{2}$Department of Molecular and Human Genetics, Baylor College of Medicine, Houston, TX.}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
 %% Enter short notes here                   %%
@@ -159,7 +149,7 @@
 
 \begin{artnotes}
 %\note{Sample of title note}     % note to the article
-\note[id=n1]{Equal contributor} % note, connected to author
+%\note[id=n1]{Equal contributor} % note, connected to author
 \end{artnotes}
 
 \end{fmbox}% comment this for two column layout
@@ -178,11 +168,29 @@
 \begin{abstractbox}
 
 \begin{abstract} % abstract
-\parttitle{First part title} %if any
-Text for this section.
 
-\parttitle{Second part title} %if any
-Text for this section.
+\parttitle{Background} %if any
+Computational biologists daily face the need to explore massive amounts of
+genomic data.  New visualization techniques help researchers navigate and
+understand these big data. Horizon Charts are a relatively new visualization
+method that, under the right circumstances, maximizes data density without
+losing graphical perception. 
+
+
+\parttitle{Results} %if any
+Horizon Charts have been successfully applied to understand multi-metric time
+series data. We have adapted an existing Javascript library (Cubism) that
+implements Horizon Charts for the time series domain so that it works
+effectively with genomic datasets. We call this new library DNAism. 
+
+
+\parttitle{Conclusions} %if any
+Users can use DNAism to leverate the power of Horizon Charts to explore their 
+own datasets. They can create their own applications or they can expand existing 
+ones.
+
+
+
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -194,9 +202,10 @@ Text for this section.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{keyword}
-\kwd{sample}
-\kwd{article}
-\kwd{author}
+\kwd{library}
+\kwd{bioformatics}
+\kwd{genomics}
+\kwd{sequencing}
 \end{keyword}
 
 % MSC classifications codes, if any
@@ -238,12 +247,42 @@ Text for this section.
 %%%%%%%%%%%%%%%%
 %% Background %%
 %%
-\section*{Content}
-Text and results for this section, as per the individual journal's instructions for authors. %\cite{koon,oreg,khar,zvai,xjon,schn,pond,smith,marg,hunn,advi,koha,mouse}
+\section*{Background}
 
-\section*{Section title}
-Text for this section \ldots
-Thus we observe that this expected value is finite for all $v>0$ (also see \cite{koon,khar,zvai,xjon,marg}).
+Text and results for this section, as per the individual journal's instructions
+for authors.
+%\cite{koon,oreg,khar,zvai,xjon,schn,pond,smith,marg,hunn,advi,koha,mouse}
+
+\section*{Implementation}
+
+Text for this section \ldots Thus we observe that this expected value is finite
+for all $v>0$ (also see \cite{koon,khar,zvai,xjon,marg}).
+
+\section*{Results and Discussion}
+
+Text for this section \ldots Thus we observe that this expected value is finite
+for all $v>0$ (also see \cite{koon,khar,zvai,xjon,marg}).
+
+\section*{Conclusion}
+Computational biologists daily face the need to explore massive amounts of
+genomic data.  New visualization techniques help researchers navigate and
+understand these big data. Horizon Charts are a.
+
+\section*{Availability and requirements}
+
+
+\begin{itemize}
+  \item Project name: e.g. My bioinformatics project
+  \item Project home page: e.g. http://sourceforge.net/projects/mged
+  \item Operating system(s): e.g. Platform independent
+  \item Programming language: e.g. Java
+  \item Other requirements: e.g. Java 1.3.1 or higher, Tomcat 4.0 or higher
+  \item License: e.g. GNU GPL, FreeBSD etc.
+  \item Any restrictions to use by non-academics: e.g. licence needed
+\end{itemize}
+
+
+
 
 
 
@@ -263,6 +302,7 @@ Thus we observe that this expected value is finite for all $v>0$ (also see \cite
 
 \section*{Acknowledgements}
   Text for this section \ldots
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
 %%                                                         %%
@@ -302,36 +342,30 @@ Thus we observe that this expected value is finite for all $v>0$ (also see \cite
 %% Do not use \listoffigures as most will included as separate files
 
 \section*{Figures}
-  \begin{figure}[h!]
-  \caption{\csentence{Sample figure title.}
-      A short description of the figure content
-      should go here.}
-      \end{figure}
-
 \begin{figure}[h!]
-  \caption{\csentence{Sample figure title.}
-      Figure legend text.}
-      \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Tables                        %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\caption{
+  \csentence{Horizon Charts} emerge from applying a set of changes to traditional line
+  charts~\textbf{(A)}. We start by coloring the underlying area of the line chart,
+  using different hues for positive and negative values. Next, we divide the
+  graph in bands and apply a gradient of color that increases along with the
+  quantitative value of the variable we are investigating~\textbf{(B)}. In the
+  next step, negative values are flipped over the baseline~\textbf{(C)},
+  effectively reducing the vertical space by two fold. In a final step, bands are
+  collapsed making all of them start at the baseline and providing another level
+  of space reduction~\textbf{(D)}.  
+  \csentence{We used this technique} to rapidly identify problematic samples
+  when performing quality control on large scale sequencing.
+  You can see the read depth across whole genome sequences from 24 rhesus macaque
+  samples (30x coverage) for genomic region Chr17:1.1M-1.2M~\textbf{(E)}.
+  There are regions consistently underrepresented across all the
+  samples and sample 32510 has low coverage across the whole genomic region.
+  Note that the variable we are exploring in this example, read depth, does not
+  contain negative values. Therefore, only green hues appear in~\textbf{(E)}.
+}\label{fig:01}
 
-%% Use of \listoftables is discouraged.
-%%
-\section*{Tables}
-\begin{table}[h!]
-\caption{Sample table title. This is where the description of the table should go.}
-      \begin{tabular}{cccc}
-        \hline
-           & B1  &B2   & B3\\ \hline
-        A1 & 0.1 & 0.2 & 0.3\\
-        A2 & ... & ..  & .\\
-        A3 & ..  & .   & .\\ \hline
-      \end{tabular}
-\end{table}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%

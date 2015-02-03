@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2014.4.11)  3 FEB 2015 15:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2014.4.11)  3 FEB 2015 16:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -283,98 +283,120 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+(/usr/local/texlive/2013basic/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013basic/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013basic/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2013basic/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+)
+\Gin@req@height=\dimen105
+\Gin@req@width=\dimen106
+)
 (./bmc_article.aux)
 \openout1 = `bmc_article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 83.
+(lastpage)             ! on input line 84.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <13> not available
-(Font)              size <12> substituted on input line 89.
+(Font)              size <12> substituted on input line 90.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <24> not available
-(Font)              size <24.88> substituted on input line 97.
+(Font)              size <24.88> substituted on input line 92.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 118.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 113.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 118.
+(Font)              size <5> substituted on input line 113.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 118.
+(Font)              size <5> substituted on input line 113.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 118.
+(Font)              size <5> substituted on input line 113.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 118.
+(Font)              <11> on input line 113.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 118.
+(Font)              <7.69997> on input line 113.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 118.
+(Font)              <5.5> on input line 113.
 \address@aff1=\toks19
 \address@aff2=\toks20
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 165.
+(Font)              <7> on input line 155.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 165.
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 165
-.
-LaTeX Font Info:    No file OMScmss.fd. on input line 165.
+(Font)              <5> on input line 155.
 
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textdagger' on input line 165.
+LaTeX Warning: Citation `koon' on page 1 undefined on input line 259.
 
 
-LaTeX Warning: Citation `koon' on page 1 undefined on input line 246.
+LaTeX Warning: Citation `khar' on page 1 undefined on input line 259.
 
 
-LaTeX Warning: Citation `khar' on page 1 undefined on input line 246.
+LaTeX Warning: Citation `zvai' on page 1 undefined on input line 259.
 
 
-LaTeX Warning: Citation `zvai' on page 1 undefined on input line 246.
+LaTeX Warning: Citation `xjon' on page 1 undefined on input line 259.
 
 
-LaTeX Warning: Citation `xjon' on page 1 undefined on input line 246.
+LaTeX Warning: Citation `marg' on page 1 undefined on input line 259.
 
 
-LaTeX Warning: Citation `marg' on page 1 undefined on input line 246.
+LaTeX Warning: Citation `koon' on page 1 undefined on input line 264.
 
-(./bmc_article.bbl
 
-LaTeX Warning: Empty `thebibliography' environment on input line 45.
+LaTeX Warning: Citation `khar' on page 1 undefined on input line 264.
 
+
+LaTeX Warning: Citation `zvai' on page 1 undefined on input line 264.
+
+
+LaTeX Warning: Citation `xjon' on page 1 undefined on input line 264.
+
+
+LaTeX Warning: Citation `marg' on page 1 undefined on input line 264.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 275.
+
+(/usr/local/texlive/2013basic/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 308.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 308.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 275.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 348.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 281.
 
 
 
@@ -384,7 +406,16 @@ Overfull \hbox (1.0pt too wide) has occurred while \output is active
 
 [1
 
-] 
+] (./bmc_article.bbl
+
+LaTeX Warning: Empty `thebibliography' environment on input line 45.
+
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 365.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 365.
+ 
 AED: lastpage setting LastPage
 [2] (./bmc_article.aux)
 
@@ -392,19 +423,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 1678 strings out of 494537
- 19942 string characters out of 6167472
- 77637 words of memory out of 5000000
- 4959 multiletter control sequences out of 15000+600000
+ 1871 strings out of 494537
+ 22630 string characters out of 6167472
+ 80371 words of memory out of 5000000
+ 5140 multiletter control sequences out of 15000+600000
  10337 words of font info for 36 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 30i,9n,37p,227b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,9n,37p,1525b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bmc_article.dvi (2 pages, 4920 bytes).
+Output written on bmc_article.dvi (2 pages, 7640 bytes).
