@@ -50,10 +50,10 @@
 %\usepackage{amsthm,amsmath}
 %\RequirePackage{natbib}
 %\RequirePackage{hyperref}
-\usepackage[utf8]{inputenc} %unicode support
+%\usepackage[utf8]{inputenc} %unicode support
 %\usepackage[applemac]{inputenc} %applemac support if unicode package fails
 %\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
-\usepackage{graphicx}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -284,6 +284,47 @@ understand these big data. Horizon Charts are a.
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Figures                       %%
+%%                               %%
+%% NB: this is for captions and  %%
+%% Titles. All graphics must be  %%
+%% submitted separately and NOT  %%
+%% included in the Tex document  %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% Do not use \listoffigures as most will included as separate files
+
+\section*{Figures}
+\begin{figure}[h!]
+
+\caption{
+  \csentence{Horizon Charts} emerge from applying a set of changes to traditional line
+  charts~\textbf{(A)}. We start by coloring the underlying area of the line chart,
+  using different hues for positive and negative values. Next, we divide the
+  graph in bands and apply a gradient of color that increases along with the
+  quantitative value of the variable we are investigating~\textbf{(B)}. In the
+  next step, negative values are flipped over the baseline~\textbf{(C)},
+  effectively reducing the vertical space by two fold. In a final step, bands are
+  collapsed making all of them start at the baseline and providing another level
+  of space reduction~\textbf{(D)}.  
+  \csentence{We used this technique} to rapidly identify problematic samples
+  when performing quality control on large scale sequencing.
+  You can see the read depth across whole genome sequences from 24 rhesus macaque
+  samples (30x coverage) for genomic region Chr17:1.1M-1.2M~\textbf{(E)}.
+  There are regions consistently underrepresented across all the
+  samples and sample 32510 has low coverage across the whole genomic region.
+  Note that the variable we are exploring in this example, read depth, does not
+  contain negative values. Therefore, only green hues appear in~\textbf{(E)}.
+}\label{fig:01}
+
+\end{figure}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -326,45 +367,6 @@ understand these big data. Horizon Charts are a.
 % \begin{thebibliography}
 % \bibitem{b1}
 % \end{thebibliography}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Figures                       %%
-%%                               %%
-%% NB: this is for captions and  %%
-%% Titles. All graphics must be  %%
-%% submitted separately and NOT  %%
-%% included in the Tex document  %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%
-%% Do not use \listoffigures as most will included as separate files
-
-\section*{Figures}
-\begin{figure}[h!]
-
-\caption{
-  \csentence{Horizon Charts} emerge from applying a set of changes to traditional line
-  charts~\textbf{(A)}. We start by coloring the underlying area of the line chart,
-  using different hues for positive and negative values. Next, we divide the
-  graph in bands and apply a gradient of color that increases along with the
-  quantitative value of the variable we are investigating~\textbf{(B)}. In the
-  next step, negative values are flipped over the baseline~\textbf{(C)},
-  effectively reducing the vertical space by two fold. In a final step, bands are
-  collapsed making all of them start at the baseline and providing another level
-  of space reduction~\textbf{(D)}.  
-  \csentence{We used this technique} to rapidly identify problematic samples
-  when performing quality control on large scale sequencing.
-  You can see the read depth across whole genome sequences from 24 rhesus macaque
-  samples (30x coverage) for genomic region Chr17:1.1M-1.2M~\textbf{(E)}.
-  There are regions consistently underrepresented across all the
-  samples and sample 32510 has low coverage across the whole genomic region.
-  Note that the variable we are exploring in this example, read depth, does not
-  contain negative values. Therefore, only green hues appear in~\textbf{(E)}.
-}\label{fig:01}
-
-\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
