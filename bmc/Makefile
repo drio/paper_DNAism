@@ -6,7 +6,8 @@ bmc_article.pdf: bmc_article.tex
 	bibtex bmc_article
 	latex bmc_article.tex
 	latex bmc_article.tex
-	dvipdfm bmc_article.dvi
+	#dvipdfm bmc_article.dvi
+	dvipdf bmc_article.dvi
 	@echo "##################"
 	@echo -ne "# of words: "; ../texcount.pl bmc_article.tex | \
 		ruby -ne 'BEGIN{@o=0, @t=0};m = $$_.match(/Words in text: (\d+)/); @o=m[1] if m; \
