@@ -16,4 +16,4 @@ bmc_article.pdf: bmc_article.tex
 
 clean:
 	#rm -fr *.toc *.aux *.bbl *.blg *.idx *.log *.out *~ doc*.pdf *.dvi PLAIN.BST *.cfg *.bst *.pdf
-	rm -fr *.toc *.aux *.bbl *.blg *.idx *.log *.out *~ doc *.dvi PLAIN.BST *.cfg 
+	rm -fr *.toc *.aux *.bbl *.blg *.idx *.log *.out *~ doc *.dvi PLAIN.BST *.cfg bmc*.pdf

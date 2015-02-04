@@ -249,26 +249,95 @@ ones.
 %%
 \section*{Background}
 
-Text and results for this section, as per the individual journal's instructions
-for authors.
-%\cite{koon,oreg,khar,zvai,xjon,schn,pond,smith,marg,hunn,advi,koha,mouse}
+Sharing and communicating about large and intricate datasets produced by
+Next-Gen sequencing can be a challenging task. Visual channels are an effective
+way to explore data. However, the accelerating increase in data quantity is
+pushing the limits of current approaches for representing these datasets
+visually without sacrificing accuracy or graphical perception.  Data volume is
+increasing vertically as throughput per sample increases, and horizontally as
+studies involving large numbers of subjects become more feasible.  Thus, more
+effective visualization techniques are needed to understand the most
+challenging Next-Gen sequencing datasets.
+
+Horizon Charts~\cite{time-in-the-horizon} have proved to be an effective~\cite{2009-horizon}
+visualization approach when working with multi-metric time series encoded data.
+On the other hand, BED\footnote{http://genome.ucsc.edu/FAQ/FAQformat.html}
+files are the gold standard for capturing genomic metrics in the Next-Gen
+sequencing domain. In time series, metrics are monitored over time, however,
+BED files use genomic coordinates. We have adapted a time series Javascript
+library to the genomic domain. We call our new library DNAism.
+
+
 
 \section*{Implementation}
 
-Text for this section \ldots Thus we observe that this expected value is finite
-for all $v>0$ (also see \cite{koon,khar,zvai,xjon,marg}).
+Contrary to time series data, in genomic datasets, the variable under study is
+associated with chromosomal coordinates instead of timestamps. We have modified
+an existing time series data visualization library (based on D3~\cite{2011-d3})
+called Cubism to support genome coordinate data. This makes DNAism
+a flexible and effective tool to explore multi-sample genomic datasets using
+Horizon charts.
+
+To visualize genomic datasets, we have modified most of the components of the
+original Cubism library.  The two major ones being 'context' and
+'source'.  The 'context' component performs several functions, most
+importantly, it defines the region of the genome we want to explore. This
+component also specifies, in pixels, how much vertical space we have available
+for the visualization.  The 'source' component parses the genomic raw data and
+generates the data points necessary for visualization. Our library provides two
+sources: 'bedfile' and 'bedserver'. Once the sources are created we can use the
+metric component to instantiate metrics pointing to specific samples.  Finally,
+the horizon component encapsulates the functionality necessary to create the
+visual elements. Figure~\ref{fig:01} illustrates visualization of sample data.
+
+One of the crucial features of DNAism is the ability to efficiently parse and
+load the genomic data for visualization. We have provided two alternatives via
+the bedfile and the bedserver sources. A bedfile is a simple solution that
+loads all the genomic data in memory and returns the relevant data when
+queried.  However, this approach is not adequate for larger datasets,
+especially those involving multi-sample data. To handle such cases, the
+bedserver source can be used. A bedserver is a dedicated server that
+implements a RESTful API interface. The client's code running in the browser
+can send queries to this server to obtain the data of interest.  The server
+uses pre-indexed~\cite{tabix-li} data to speed up random access and returns
+only the necessary information for the visualization back to the client.
+Hence, this approach becomes much more scalable even with large sized genomic
+data sets. We have implemented bedserver as a Python package.
+
+Our source code has a decoupled interface that facilitates the extension of
+this library to new data sources. DNAism is data agnostic. As a result, users
+can create new sources to capture their specific backend peculiarities.
+
 
 \section*{Results and Discussion}
 
-Text for this section \ldots Thus we observe that this expected value is finite
-for all $v>0$ (also see \cite{koon,khar,zvai,xjon,marg}).
+XXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXYP
+XXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXYP
+XXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXYP
+XXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXYP
+
 
 \section*{Conclusion}
-Computational biologists daily face the need to explore massive amounts of
-genomic data.  New visualization techniques help researchers navigate and
-understand these big data. Horizon Charts are a.
+XXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXYP
+XXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXYP
+XXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXYP
 
 \section*{Availability and requirements}
+We introduce the genomics community to a powerful visualization technique
+previously used in the time series data domain. This method facilitates
+identification of abnormal patterns across multi-sample datasets.  In addition, this
+approach helps to explore and visualize high density datasets more effectively,
+thereby, helping the researchers to understand the data easily.
+
+Our library keeps the effective and elegant interface of the original,
+while allowing users to leverage its power for genomic data. By providing a
+library, we maintain flexibility regarding how to use these resources. Users
+can build full applications or use the library within their existing ones.
+
+The companion lightweight server will facilitate the exploration of large
+genomic datasets without affecting user experience by using indexed datasets.
+Alternatively, users can create their own data sources to reflect the details
+of their own environments.
 
 
 \begin{itemize}
