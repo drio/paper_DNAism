@@ -183,9 +183,11 @@ implements Horizon Charts for the time series domain so that it works
 effectively with genomic datasets. We call this new library DNAism. 
 
 
-\parttitle{Conclusions} %if any Users can use DNAism to leverate the power of
-Horizon Charts to explore their own datasets. They can do so by creating their
-own applications or expanding existing ones.
+\parttitle{Conclusions} 
+Horizon Charts can be an effective visual tool to explore complex and large
+genomic datasets. Users can use our library to leverage these technique to
+extract insights on their own datasets.
+
 
 \end{abstract}
 
@@ -269,13 +271,13 @@ studies involving large numbers of subjects become more feasible.  Thus, more
 effective visualization techniques are needed to understand the most
 challenging Next-Gen sequencing datasets.
 
-Horizon Charts~\cite{time-in-the-horizon} have proved to be an effective~\cite{2009-horizon}
-visualization approach when working with multi-metric time series encoded data.
-On the other hand, BED\footnote{http://genome.ucsc.edu/FAQ/FAQformat.html}
-files are the gold standard for capturing genomic metrics in the Next-Gen
-sequencing domain. In time series, metrics are monitored over time, however,
-BED files use genomic coordinates. We have adapted a time series JavaScript
-library to the genomic domain. We call our new library DNAism.
+Horizon Charts~\cite{time-in-the-horizon} have proved to be an
+effective~\cite{2009-horizon} visualization approach when working with
+multi-metric time series encoded data.  On the other hand, BED files are the
+gold standard for capturing genomic metrics in the Next-Gen sequencing domain.
+In time series, metrics are monitored over time, however, BED files use genomic
+coordinates. We have adapted a time series JavaScript library to the genomic
+domain. We call our new library DNAism.
 
 
 
@@ -298,39 +300,53 @@ generates the data points necessary for visualization. Our library provides two
 sources: 'bedfile' and 'bedserver'. Once the sources are created we can use the
 metric component to instantiate metrics pointing to specific samples.  Finally,
 the horizon component encapsulates the functionality necessary to create the
-visual elements. Figure~\ref{fig:01} illustrates visualization of sample data.
+visual elements.
 
 One of the crucial features of DNAism is the ability to efficiently parse and
 load the genomic data for visualization. We have provided two alternatives via
 the bedfile and the bedserver sources. A bedfile is a simple solution that
-loads all the genomic data in memory and returns the relevant data when
+loads all the genomic information  in memory and returns the relevant data when
 queried.  However, this approach is not adequate for larger datasets,
 especially those involving multi-sample data. To handle such cases, the
-bedserver source can be used. A bedserver is a dedicated server that
-implements a RESTful API interface. The client's code running in the browser
-can send queries to this server to obtain the data of interest.  The server
-uses pre-indexed~\cite{tabix-li} data to speed up random access and returns
-only the necessary information for the visualization back to the client.
-Hence, this approach becomes much more scalable even with large sized genomic
-data sets. We have implemented bedserver as a Python package.
+bedserver source can be used. A bedserver is a dedicated server that implements
+a RESTful API interface. The client's code running in the browser can send
+queries to this server to obtain the data of interest.  The server uses
+pre-indexed~\cite{tabix-li} data to speed up random access and returns only the
+necessary information for the visualization back to the client.  Hence, this
+approach becomes much more scalable even with large sized genomic data sets. We
+have implemented bedserver as a Python package [Additional file 3].
 
-Our source code has a decoupled interface that facilitates the extension of
-this library to new data sources. DNAism is data agnostic. As a result, users
-can create new sources to capture their specific backend peculiarities.
+The source code of our library (and the original Cubism) has a decoupled
+interface that facilitates the extension of this library to new data sources.
+DNAism is data agnostic. As a result, users can create new sources to capture
+their specific backend peculiarities.
 
 
 \section*{Results and Discussion}
 
-% The Results and Discussion may be combined into a single section or presented
-% separately. They may also be broken into subsections with short, informative
-% headings. In any case what should be described is the functionality of the
-% software together with data on how its performance and functionality compare
-% with and improve on functionally similar existing software. There should then
-% be a discussion of the intended use of the software, and the benefits that are
-% envisioned together, if possible, with an outline for the planned future
-% development of new features.
 
+% - functionality of the software (with data) 
 
+Our library allows users the use of Horizon Charts for exploring their genomic
+datasets.  As an example, we have used the library to perform quality control
+in multiple Next-Gen datasets Figure~\ref{fig:01} illustrates visualization of
+sample data.
+
+% - compare with and improve on functionally similar existing software.
+
+We are not aware of any tool that uses Horizon Charts to explore genomic data.
+The software is released as a library so users can leverage this powerful
+visual technique within their projects.
+
+% - intended use of the software, 
+
+The library can be used to visually explore any type of genomic data that can
+be represented in BED format. 
+
+% - benefits that are envisioned 
+
+Our library is ideal to help extract insights and find patterns in multi sample
+large datasets~\ref{fig:01}.
 
 
 \section*{Conclusion}
@@ -359,10 +375,10 @@ of their own environments.
 
 
 \section*{Availability and requirements}
-
+\enspace
 \begin{itemize}
   \item Project name: DNAism.
-  \item Project home page: http://drio.github.io/dnaisml (main site), https://github.com/drio/dnaism (source code).
+  \item Project home page: http://drio.github.io/dnaism (main site), https://github.com/drio/dnaism (source code).
   \item Operating system(s): Platform Independent.
   \item Programming language: JavaScript.
   \item Other requirements: Modern Browser.
@@ -473,6 +489,7 @@ in discussions and approved the final draft of the manuscript.
 \section*{Additional Files}
 \subsection*{Additional file 1 --- The DNAism home page show an example how to create simple visualization step by step.}
 \subsection*{Additional file 2 --- Source code, with comments, for the visualization in Figure 1.}
+\subsection*{Additional file 3 --- Backend implementation example for bedserver source: https://github.com/drio/bedserver}
 
 
 \end{backmatter}
