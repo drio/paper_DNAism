@@ -153,22 +153,11 @@
 \end{artnotes}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                          %%
-%% The Abstract begins here                 %%
-%%                                          %%
-%% Please refer to the Instructions for     %%
-%% authors on http://www.biomedcentral.com  %%
-%% and include the section headings         %%
-%% accordingly for your article type.       %%
-%%                                          %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{abstractbox}
 
 \begin{abstract} % abstract
 
-\parttitle{Background} %if any
+\parttitle{Background}
 Computational biologists daily face the need to explore massive amounts of
 genomic data.  New visualization techniques help researchers navigate and
 understand these big data. Horizon Charts are a relatively new visualization
@@ -176,6 +165,9 @@ method that, under the right circumstances, maximizes data density without
 losing graphical perception. 
 
 
+% This should include a description of the overall architecture of the
+% software implementation, along with details of any critical issues and how they
+% were addressed.
 \parttitle{Results} %if any
 Horizon Charts have been successfully applied to understand multi-metric time
 series data. We have adapted an existing JavaScript library (Cubism) that
@@ -229,36 +221,14 @@ extract insights on their own datasets.
 
 
 
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                          %%
-%% The Main Body begins here                %%
-%%                                          %%
-%% Please refer to the instructions for     %%
-%% authors on:                              %%
-%% http://www.biomedcentral.com/info/authors%%
-%% and include the section headings         %%
-%% accordingly for your article type.       %%
-%%                                          %%
-%% See the Results and Discussion section   %%
-%% for details on how to create sub-sections%%
-%%                                          %%
-%% use \cite{...} to cite references        %%
-%%  \cite{koon} and                         %%
-%%  \cite{oreg,khar,zvai,xjon,schn,pond}    %%
-%%  \nocite{smith,marg,hunn,advi,koha,mouse}%%
-%%                                          %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%% start of article main body
-% <put your article body there>
-
 %%%%%%%%%%%%%%%%
 %% Background %%
 %%
+% The Background section should be written in a way that is accessible to
+% researchers without specialist knowledge in that area and must clearly state -
+% and, if helpful, illustrate - the background to the research and its aims. It
+% should clearly described the relevant context and the specific issue which the
+% software described is intended to address.
 \section*{Background}
 
 Sharing and communicating about large and intricate datasets produced by
@@ -281,6 +251,14 @@ domain. We call our new library DNAism.
 
 
 
+
+
+
+
+
+% This should include a description of the overall architecture of the software
+% implementation, along with details of any critical issues and how they were
+% addressed.
 \section*{Implementation}
 
 Contrary to time series data, in genomic datasets, the variable under study is
@@ -326,27 +304,35 @@ their specific backend peculiarities.
 
 
 % - functionality of the software (with data) 
+The main function of DNAism is to expose the power of Horizon charts while
+abstracting the inner details. Exposing the functionality as a library provides
+flexibility to the user to allow them to incorporate these visualization
+techniques within their projects. We believe that this technology is ideal to
+develop visualizations that will help the community to better understand their
+genomic datasets. 
 
-Our library allows users the use of Horizon Charts for exploring their genomic
-datasets.  As an example, we have used the library to perform quality control
-in multiple Next-Gen datasets Figure~\ref{fig:01} illustrates visualization of
-sample data.
 
 % - compare with and improve on functionally similar existing software.
+We are not aware of any other tools that use Horizon charts to explore the
+genomic data.
 
-We are not aware of any tool that uses Horizon Charts to explore genomic data.
-The software is released as a library so users can leverage this powerful
-visual technique within their projects.
 
 % - intended use of the software, 
-
-The library can be used to visually explore any type of genomic data that can
-be represented in BED format. 
+The library is intended for exploring the genomic data. It is ideal for
+performing quality control on genomic datasets by visualizing different encoded
+metrics, typically in BED format.
 
 % - benefits that are envisioned 
+With our library, the users can study visualize the data more easily, which
+would help to extract insights, find patterns and abnormalities in multi-sample
+genomic datasets (Figure ~\ref{fig:01}).
 
-Our library is ideal to help extract insights and find patterns in multi sample
-large datasets~\ref{fig:01}.
+% - Future (users)
+In the future, we will be adding new sources to allow the users to load data
+from different types of backend services. We want to extend the library to make
+it easier to use, especially for the users that are not well-versed with web
+ecosystem. 
+
 
 
 \section*{Conclusion}
@@ -355,7 +341,7 @@ large datasets~\ref{fig:01}.
 % explanation of the importance and relevance of the software.
 
 We introduce the genomics community to a powerful visualization technique
-previously used in the time series data domain. This method facilitates
+previously used in the time series data domain. This visual tool facilitates
 identification of abnormal patterns across multi-sample datasets.  In addition, this
 approach helps to explore and visualize high density datasets more effectively,
 thereby, helping the researchers to understand the data easily.
