@@ -157,12 +157,11 @@
 
 \begin{abstract} % abstract
 
-\parttitle{Background}
-Computational biologists daily face the need to explore massive amounts of
-genomic data.  New visualization techniques help researchers navigate and
-understand these big data. Horizon Charts are a relatively new visualization
-method that, under the right circumstances, maximizes data density without
-losing graphical perception. 
+\parttitle{Background} Computational biologists daily face the need to explore
+massive amounts of genomic data.  New visualization techniques can help
+researchers navigate and understand these big data. Horizon Charts are a
+relatively new visualization method that, under the right circumstances,
+maximizes data density without losing graphical perception. 
 
 
 % This should include a description of the overall architecture of the
@@ -177,8 +176,8 @@ effectively with genomic datasets. We call this new library DNAism.
 
 \parttitle{Conclusions} 
 Horizon Charts can be an effective visual tool to explore complex and large
-genomic datasets. Users can use our library to leverage these technique to
-extract insights on their own datasets.
+genomic datasets. Researchers can use our library to leverage these techniques to
+extract additional insights from their own datasets.
 
 
 \end{abstract}
@@ -241,6 +240,17 @@ studies involving large numbers of subjects become more feasible.  Thus, more
 effective visualization techniques are needed to understand the most
 challenging Next-Gen sequencing datasets.
 
+Sharing and communicating about large and intricate datasets produced by
+Next-Gen sequencing can be a challenging task. Visual channels are an effective
+way to explore data. However, the accelerating increase in data quantity is
+pushing the limits of current approaches for representing these datasets
+visually without sacrificing accuracy or graphical perception.  Overall data
+volume is increasing vertically as data production per sample
+increases, and horizontally as studies involving ever larger numbers of
+subjects become more feasible.  Thus, more effective visualization techniques
+are needed to understand the most challenging Next-Gen sequencing datasets.
+
+
 Horizon Charts~\cite{time-in-the-horizon} have proved to be an
 effective~\cite{2009-horizon} visualization approach when working with
 multi-metric time series encoded data.  On the other hand, BED files are the
@@ -269,16 +279,16 @@ and effective tool to explore multi-sample genomic datasets using Horizon
 Charts.
 
 To visualize genomic datasets, we have modified most of the software components
-of the original Cubism library.  The two major ones being 'context' and
-'source'.  The 'context' component performs several functions, most
+of the original Cubism library.  The two major components are 'context' and
+'source'.  The 'context' component performs several functions. Most
 importantly, it defines the region of the genome we want to explore. This
 component also specifies, in pixels, how much vertical space we have available
 for the visualization.  The 'source' component parses the genomic raw data and
 generates the data points necessary for visualization. Our library provides two
 sources: 'bedfile' and 'bedserver'. Once the sources are created we can use the
-metric component to instantiate metrics pointing to specific samples.  Finally,
-the horizon component encapsulates the functionality necessary to create the
-visual elements.
+metric component to instantiate metrics associated with specific samples.
+Finally, the horizon component encapsulates the functionality necessary to
+create the visual elements.
 
 One of the crucial features of DNAism is the ability to efficiently parse and
 load the genomic data for visualization. We have provided two alternatives via
@@ -307,8 +317,8 @@ their specific backend peculiarities.
 The main function of DNAism is to expose the power of Horizon charts while
 abstracting the inner details. Exposing the functionality as a library provides
 flexibility to the user to allow them to incorporate these visualization
-techniques within their projects. We believe that this technology is ideal to
-develop visualizations that will help the community to better understand their
+techniques within their projects. We believe that this technology is ideal for
+developing visualizations that will help the community to better understand their
 genomic datasets. 
 
 
@@ -323,7 +333,7 @@ performing quality control on genomic datasets by visualizing different encoded
 metrics, typically in BED format.
 
 % - benefits that are envisioned 
-With our library, the users can study visualize the data more easily, which
+With our library, users can  visualize large amounts of data more easily, which
 would help to extract insights, find patterns and abnormalities in multi-sample
 genomic datasets (Figure ~\ref{fig:01}).
 
@@ -342,14 +352,16 @@ ecosystem.
 
 We introduce the genomics community to a powerful visualization technique
 previously used in the time series data domain. This visual tool facilitates
-identification of abnormal patterns across multi-sample datasets.  In addition, this
-approach helps to explore and visualize high density datasets more effectively,
-thereby, helping the researchers to understand the data easily.
+the identification of similarities or abnormalities in patterns across
+multi-sample datasets.  In addition, this approach helps to explore and
+visualize high density datasets more effectively, thereby, helping the
+researchers to understand their data more easily.
 
-Our library keeps the effective and elegant interface of the original,
-while allowing users to leverage its power for genomic data. By providing a
-library, we maintain flexibility regarding how to use these resources. Users
-can build full applications or use the library within their existing ones.
+Our library keeps the effective and elegant interface of the original, while
+allowing users to leverage its power for genomic data. By providing a library,
+we maintain flexibility regarding how researchers can use these resources.
+Users can build full applications or use the library within their existing
+ones.
 
 The companion lightweight server will facilitate the exploration of large
 genomic datasets without affecting user experience by using indexed datasets.
@@ -390,28 +402,25 @@ of their own environments.
 \section*{Figures}
 \begin{figure}[h!]
 
-\caption{
-  \csentence{Horizon Charts} emerge from applying a set of changes to traditional line
-  charts~\textbf{(A)}. We start by coloring the underlying area of the line chart,
-  using different hues for positive and negative values. Next, we divide the
-  graph in bands and apply a gradient of color that increases along with the
-  quantitative value of the variable we are investigating~\textbf{(B)}. In the
-  next step, negative values are flipped over the baseline~\textbf{(C)},
-  effectively reducing the vertical space by two fold. In a final step, bands are
-  collapsed making all of them start at the baseline and providing another level
-  of space reduction~\textbf{(D)}.  
-  \csentence{We used this technique} to rapidly identify problematic samples
-  when performing quality control on large scale sequencing.
-  You can see the read depth across whole genome sequences from 24 rhesus macaque
-  samples (30x coverage) for genomic region Chr17:1.1M-1.2M~\textbf{(E)}.
-  There are regions consistently underrepresented across all the
-  samples and sample 32510 has low coverage across the whole genomic region.
-  Note that the variable we are exploring in this example, read depth, does not
-  contain negative values. Therefore, only green hues appear in~\textbf{(E)}.
-}\label{fig:01}
+\caption{ \csentence{Horizon Charts} emerge from applying a set of changes to
+traditional line graphs~\textbf{(A)}. We start by coloring the underlying area
+of the line graph, using different hues for positive and negative values. Next,
+we divide the graph into bands and apply a gradient of color that increases
+along with the quantitative value of the variable we are
+investigating~\textbf{(B)}. In the next step, negative values are flipped over
+the baseline~\textbf{(C)}, effectively reducing the required vertical space by
+two fold. In a final step, bands are collapsed making all of them start at the
+baseline and providing another level of space reduction~\textbf{(D)}.
+\csentence{We used this technique} to rapidly identify problematic samples when
+performing quality control on large scale sequencing results.  You can see the
+read depth across whole genome sequences from 24 rhesus macaque samples (30x
+coverage) for genomic region Chr17:1.1M-1.2M~\textbf{(E)}.  There are regions
+consistently underrepresented across all the samples and sample 32510 has low
+coverage across the whole genomic region.  Note that the variable we are
+exploring in this example, read depth, does not contain negative values.
+Therefore, only green hues appear in~\textbf{(E)}.  }\label{fig:01}
 
 \end{figure}
-
 
 
 
@@ -433,8 +442,9 @@ The authors declare that they have no competing interests.
 \section*{Author's contributions}
 
 DRD conceptualized, designed and implemented the modifications of the original
-library and drafted the manuscript.  All authors contributed in discussions and
-approved the final draft of the manuscript.
+library and drafted the manuscript. JR provided input regarding user
+applications and edited the manuscript. All authors contributed in discussions
+and approved the final draft of the manuscript.
 
 
 
